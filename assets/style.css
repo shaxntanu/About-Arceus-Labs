@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Shooting stars background */
+.stars-container {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.stars-container::before {
+    content: "";
+    position: absolute;
+    inset: -145%;
+    rotate: -45deg;
+    background: transparent;
+    background-image:
+        radial-gradient(1.5px 60px at 0px 235px, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(1.5px 60px at 400px 235px, rgba(255, 255, 255, 0.15), transparent),
+        radial-gradient(1px 1px at 200px 117.5px, rgba(255, 255, 255, 0.25) 100%, transparent 150%),
+        radial-gradient(1.5px 60px at 0px 150px, rgba(255, 255, 255, 0.18), transparent),
+        radial-gradient(1.5px 60px at 400px 150px, rgba(255, 255, 255, 0.15), transparent),
+        radial-gradient(1px 1px at 200px 75px, rgba(255, 255, 255, 0.2) 100%, transparent 150%),
+        radial-gradient(1.5px 60px at 0px 299px, rgba(255, 255, 255, 0.12), transparent),
+        radial-gradient(1.5px 60px at 400px 299px, rgba(255, 255, 255, 0.15), transparent),
+        radial-gradient(1px 1px at 200px 149.5px, rgba(255, 255, 255, 0.18) 100%, transparent 150%),
+        radial-gradient(1.5px 60px at 0px 210px, rgba(255, 255, 255, 0.15), transparent),
+        radial-gradient(1.5px 60px at 400px 210px, rgba(255, 255, 255, 0.12), transparent),
+        radial-gradient(1px 1px at 200px 105px, rgba(255, 255, 255, 0.2) 100%, transparent 150%);
+    background-size:
+        400px 235px, 400px 235px, 400px 235px,
+        400px 150px, 400px 150px, 400px 150px,
+        400px 299px, 400px 299px, 400px 299px,
+        400px 210px, 400px 210px, 400px 210px;
+    animation: shootingStars 200s linear infinite;
+}
+
+@keyframes shootingStars {
+    0% {
+        background-position:
+            0px 220px, 3px 220px, 201px 337.5px,
+            50px 16px, 53px 16px, 251px 91px,
+            175px 235px, 178px 235px, 376px 384.5px,
+            275px 75px, 278px 75px, 476px 180px;
+    }
+
+    to {
+        background-position:
+            0px 8000px, 3px 8000px, 201px 8117.5px,
+            50px 6000px, 53px 6000px, 251px 6075px,
+            175px 10000px, 178px 10000px, 376px 10149.5px,
+            275px 7500px, 278px 7500px, 476px 7605px;
+    }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .stars-container::before {
+        animation: none;
+    }
+
+    .fade-in {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* Scroll reveal animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Link hover effect */
+.link-hover {
+    color: #4a9eff;
+    transition: color 0.2s ease;
+}
+
+.link-hover:hover {
+    color: #8b5cf6;
+    text-decoration: underline;
+}

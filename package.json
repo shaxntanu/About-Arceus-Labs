@@ -1,0 +1,12 @@
+{
+    "name": "arceus-labs-about",
+    "version": "1.0.0",
+    "description": "About page for Arceus Labs - Open Source Hardware",
+    "scripts": {
+        "dev": "tailwindcss -i ./assets/style.css -o ./assets/output.css --watch",
+        "build": "tailwindcss -i ./assets/style.css -o ./assets/output.css --minify"
+    },
+    "devDependencies": {
+        "tailwindcss": "^3.4.1"
+    }
+}
